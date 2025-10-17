@@ -16,13 +16,38 @@ mkdir -p $TEST_DIR
 
 # Verificar archivos necesarios
 echo -e "${BLUE}\nVerificando archivos...${NC}"
-REQUIRED_FILES=("ft_printf.c" "libftprintf.a" "ft_printf.h")
+REQUIRED_FILES=("ft_printf.c" "ft_printf.h")
 for file in "${REQUIRED_FILES[@]}"; do
     if [ ! -f "$file" ]; then
         echo -e "${RED}Error: No se encontró $file${NC}"
         exit 1
     fi
 done
+
+# COMPILAR AUTOMÁTICAMENTE si no existe libftprintf.a
+if [ ! -f "libftprintf.a" ]; then
+    echo -e "${YELLOW}Compilando libftprintf.a...${NC}"
+    
+    # Intentar con make
+    if [ -f "Makefile" ]; then
+        make
+    else
+        # Compilación manual si no hay Makefile
+        echo -e "${YELLOW}Compilación manual...${NC}"
+        cc -Wall -Wextra -Werror -c ft_printf.c
+        ar rcs libftprintf.a ft_printf.o
+        rm -f ft_printf.o
+    fi
+    
+    # Verificar si se creó la librería
+    if [ ! -f "libftprintf.a" ]; then
+        echo -e "${RED}Error: No se pudo crear libftprintf.a${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}libftprintf.a compilado correctamente${NC}"
+else
+    echo -e "${GREEN}libftprintf.a encontrado${NC}"
+fi
 
 # Preparar archivos de prueba
 cp ft_printf.c $TEST_DIR/
