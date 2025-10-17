@@ -131,7 +131,7 @@ int main() {
 }
 EOF
 
-# Compilar tester - ¡ESTA ES LA LÍNEA CORREGIDA!
+# Compilar tester
 echo -e "${BLUE}\nCompilando tester...${NC}"
 gcc -Wall -Wextra -Werror $TEST_DIR/printf_tester.c -L$TEST_DIR -lftprintf -I$TEST_DIR -o $TEST_DIR/printf_tester 2> $TEST_DIR/compile_errors.log
 
