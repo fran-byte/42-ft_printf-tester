@@ -159,7 +159,12 @@ EOF
 
 # Compilar tester
 echo -e "${BLUE}\nCompilando tester...${NC}"
-gcc -Wall -Wextra -Werror $TEST_DIR/printf_tester.c -L$TEST_DIR -lftprintf -I$TEST_DIR -o $TEST_DIR/printf_tester 2> $TEST_DIR/compile_errors.log
+gcc -Wall -Wextra -Werror -g \
+    $TEST_DIR/printf_tester.c \
+    -L$TEST_DIR -lftprintf \
+    -I$TEST_DIR \
+    -o $TEST_DIR/printf_tester \
+    2> $TEST_DIR/compile_errors.log
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}Error en la compilación:${NC}"
