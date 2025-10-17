@@ -16,5 +16,5 @@
 X. **Descar y ejecución**
 
    ```bash
-   curl -sSL https://raw.githubusercontent.com/fran-byte/ft_printf_tester/main/tester.sh | bash
+   curl -sSL https://raw.githubusercontent.com/fran-byte/42-ft_printf-tester/main/printf-tester.sh | bash
    ```
