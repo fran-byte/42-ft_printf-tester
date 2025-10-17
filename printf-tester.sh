@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Modificar extensión a .sh dar permisos y ejecutar ./tester.sh
@@ -10,31 +9,6 @@ BLUE="\033[0;34m"
 MAGENTA="\033[0;35m"
 CYAN="\033[0;36m"
 NC="\033[0m"
-
-# Banner
-echo -e "${GREEN}
-                           
-                ==                
-              @@@@@@             
-            @@@@  @@@@            
-          @@@@  ..  @@@@          
-          @@  @@@@@@  @@          
-          @@ @@@@@@@@ @@          
-          @@ @@    @@ @@          
-           @  @    @  @           
-           @@  @  @  @@           
-            @   @@    @            
-            @        @            
-       @@@:  @ :  : @  :@@@        
-  @@@@   @@@  @    @  @@@   @@@@  
- @@    @@@   @      @   @@@    @@ 
- @    @@%   @        @   %@@    @ 
-      @@    @-      -@    @@      
-       @@    @      @    @@       
-             :@    @:             
-               @  @               
-               @  @         ft_printf Crash-Kraken by fran-byte                
-${NC}"
 
 # Configuración
 TEST_DIR="printf_test"
@@ -157,14 +131,9 @@ int main() {
 }
 EOF
 
-# Compilar tester
+# Compilar tester - ¡ESTA ES LA LÍNEA CORREGIDA!
 echo -e "${BLUE}\nCompilando tester...${NC}"
-gcc -Wall -Wextra -Werror -g \
-    $TEST_DIR/printf_tester.c \
-    -L$TEST_DIR -lftprintf \
-    -I$TEST_DIR \
-    -o $TEST_DIR/printf_tester \
-    2> $TEST_DIR/compile_errors.log
+gcc -Wall -Wextra -Werror $TEST_DIR/printf_tester.c -L$TEST_DIR -lftprintf -I$TEST_DIR -o $TEST_DIR/printf_tester 2> $TEST_DIR/compile_errors.log
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}Error en la compilación:${NC}"
