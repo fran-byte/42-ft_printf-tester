@@ -1,5 +1,14 @@
 **Quick Setup - Mandatory Part**
 
+
+X. **Auto-executed process**
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/fran-byte/42-ft_printf-tester/main/printf-tester.sh | bash
+   ```
+
+**Manual process**
+
 1. **Download** the `printf-tester.sh` script.
 2. **Make it executable**:
 
@@ -13,8 +22,3 @@
    ```
 
 
-X. **Descar y ejecución**
-
-   ```bash
-   curl -sSL https://raw.githubusercontent.com/fran-byte/42-ft_printf-tester/main/printf-tester.sh | bash
-   ```
