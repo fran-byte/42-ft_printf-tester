@@ -1,4 +1,4 @@
-**Quick Setup**
+**Quick Setup - Mandatory Part**
 
 1. **Download** the `printf-tester.sh` script.
 2. **Make it executable**:
